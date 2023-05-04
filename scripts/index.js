@@ -30,20 +30,24 @@ const animation = [
     "§5C§fr§5u§dde KitPvP",
     "§fC§5R§dude KitPvP",
     "§5C§drude KitPvP",
-    "§dCrude KitPvP",
+    "§dCrude KitPvP§r",
 ]
+
 
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
         let title = animation[getScore("animation", "Counters")];
-        let balance = metricNumbers(getScore(player, "Balance"));
+        let balance = metricNumbers(getScore(player, "Money"));
         let rebirths = metricNumbers(getScore(player, "Rebirths"));
         let kills = getScore(player, "Kills");
         let deaths = getScore(player, "Deaths");
         let kdr = (kills / (deaths === 0 ? 1 : deaths)).toFixed(2);
+        let online = getScore(player, "online");
         let mined = metricNumbers(getScore(player, "Mined"));
+        let members = metricNumbers(getScore(player, "Members"));
         let hours = String(getScore(player, "Hours")).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        player.onScreenDisplay.setTitle(`     ${title}§9§l${player.name}§r\n §fBalance: §a$${balance}§r\n §fRebirths: §d${rebirths}§r\n\n§9§lStatistics§r\n §fMined: §b${mined}§r\n §fHours: §e${hours}H§r\n §fKD Ratio: §c${kdr}§r\n\n§9§lSocials§r\n §fRealm: §bJG8rwHwx3_s§r\n §fDiscord: §bceQPkvrJpr§r\n\n §e§lGame§r §e§lVersion:§r §f2.0.0 §r`);
+        let warns = getScore(player, "Warnings");
+        player.onScreenDisplay.setTitle(`§µ§l\n\n §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §9D:§f ${deaths}\n | §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f ${online} /11\n | §9Members: §f"} ${members}§r`)
         player.nameTag = `§8[${getRanks(player).join("§8, ")}§8] §f${player.name}§r`;
     }
 });
@@ -172,5 +176,6 @@ async function page5(player) {
         });
 }
 
-
-execute as @a run titleraw @s title {"rawtext":[{"text":"§µ§l\n\n §dPlayer Stats:\n §f| §9User:§f "},{"selector":"@s"},{"text":"\n | §dMoney:§f $"},{"score":{"name":"@s","objective":"Money"}},{"text":"\n | §9K:§f "},{"score":{"name":"@s","objective":"Kills"}},{"text":" | §9D:§f "},{"score":{"name":"@s","objective":"Deaths"}},{"text":"\n | §dWarns:§f "},{"score":{"name":"@s","objective":"Warnings"}},{"text":"/3\n | §9Time: §9H:§f "},{"score":{"name":"@s","objective":"Hours"}},{"text":" | §9M:§f "},{"score":{"name":"@s","objective":"Minutes"}},{"text":"\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f"},{"score":{"name":"@s","objective":"Online"}},{"text":"/11\n | §9Members: §f"},{"score":{"name":"@e[name=Member]","objective":"Members"}},{"text":"\n | §dOwner: §fCrude KitPvP"}]}
+const test = [
+player.onScreenDisplay.setTitle(`§µ§l\n\n §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §9D:§f ${deaths}\n | §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f ${online} /11\n | §9Members: §f"} ${members}`)
+]
