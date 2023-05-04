@@ -171,3 +171,6 @@ async function page5(player) {
             );
         });
 }
+
+
+execute as @a run titleraw @s title {"rawtext":[{"text":"§µ§l\n\n §dPlayer Stats:\n §f| §9User:§f "},{"selector":"@s"},{"text":"\n | §dMoney:§f $"},{"score":{"name":"@s","objective":"Money"}},{"text":"\n | §9K:§f "},{"score":{"name":"@s","objective":"Kills"}},{"text":" | §9D:§f "},{"score":{"name":"@s","objective":"Deaths"}},{"text":"\n | §dWarns:§f "},{"score":{"name":"@s","objective":"Warnings"}},{"text":"/3\n | §9Time: §9H:§f "},{"score":{"name":"@s","objective":"Hours"}},{"text":" | §9M:§f "},{"score":{"name":"@s","objective":"Minutes"}},{"text":"\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f"},{"score":{"name":"@s","objective":"Online"}},{"text":"/11\n | §9Members: §f"},{"score":{"name":"@e[name=Member]","objective":"Members"}},{"text":"\n | §dOwner: §fCrude KitPvP"}]}
