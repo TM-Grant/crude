@@ -19,8 +19,7 @@ function statsPage(hitter) {
     let warns = getScore(hit, "Warnings");
     const form = new ActionFormData();
     form.title("${hit.name}(s) Stats");
-    form.body(`§aMoney: §f$${balance}\n§dKills: §f${kills}\n§cDeaths: §f${deaths}\n§bHours: §f${hours}\n§eWarnings: §f${warns}`)
+    form.body(`§aMoney: §f$${balance}\n§dKills: §f${kills}\n§cDeaths: §f${deaths}\n§bHours: §f${hours}H\n§eWarnings: §f${warns}`)
     form.button("§cClose")
-    form.show(hitter).then((response) => {
-    })
+    form.show(hitter)
 }
