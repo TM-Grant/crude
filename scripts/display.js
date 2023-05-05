@@ -56,8 +56,8 @@ system.runInterval(() => {
 
 system.run(function tick() {
     for (const player of world.getPlayers()) {
-        if (player.hasTag("sellgt")) {
-            player.removeTag("sellgt");
+        if (player.hasTag("sell")) {
+            player.removeTag("sell");
             sell_items(player);
         }
     }
