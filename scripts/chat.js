@@ -10,4 +10,8 @@ world.events.beforeChat.subscribe((data) => {
         data.cancel = true;
         world.sendMessage(`§7[§a$${balance}§7] §7[§b${hours}§7] §e${player.name}: §f${message}`)
     }
+    else if (message.startsWith(prefix)) {
+        data.cancel = true
+        player.sendMessage("Commands Coming Soon")
+        }
 })
