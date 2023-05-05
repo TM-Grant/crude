@@ -1,3 +1,4 @@
 import "./display";
 import "./functions";
-import "./chat"
+import "./chat";
+import "./stats";
