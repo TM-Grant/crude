@@ -99,7 +99,6 @@ if (item_count < 1) {
     return;
 }
 if (item_count >= 1) {
-    const amountFixed = metricNumbers(amount)
     player.runCommandAsync(`scoreboard players add @s Balance ${amount}`);
-    player.sendMessage(`§8[§eKitPvP§8] §dYou sold §bx${item_count} §ditem(s) for §a$${amountFixed}§d.§r`);
+    player.sendMessage(`§8[§eKitPvP§8] §dYou sold §bx${item_count} §ditem(s) for §a$${amount}§d.§r`);
 }
