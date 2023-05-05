@@ -21,5 +21,8 @@ function statsPage(hitter) {
     form.title("${hit.name}(s) Stats");
     form.body(`§aMoney: §f$${balance}\n§dKills: §f${kills}\n§cDeaths: §f${deaths}\n§bHours: §f${hours}H\n§eWarnings: §f${warns}`)
     form.button("§cClose")
-    form.show(hitter)
+    form.show(hitter).then((response) => {
+        if (reaponse.selection == 0) {
+            player.sendMessage("Closed GUI");
+        }
 }
