@@ -46,7 +46,7 @@ system.runInterval(() => {
         let members = metricNumbers(getScore(player, "members"));
         let hours = String(getScore(player, "Hours")).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         let warns = getScore(player, "Warnings");
-        player.onScreenDisplay.setTitle(`\n\n§µ§l     ${title}§l §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §dD:§f ${deaths}\n | §9KDR: §f${kdr} \n| §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f${online}/11\n | §9Members: §f${members}§r`)
+        player.onScreenDisplay.setTitle(`\n\n§µ§l     ${title}§l §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §dD:§f ${deaths}\n | §9KDR: §f${kdr} \n| §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n§f| §dOnline: §f${online}/11\n | §9Members: §f${members}§r`)
         player.nameTag = `§8[${getRanks(player).join("§8, ")}§8] §f${player.name}§r`;
     }
 });
