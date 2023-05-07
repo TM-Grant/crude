@@ -53,13 +53,3 @@ system.runInterval(() => {
     if (getScore("animation", "Counters") == 29)
         overworld.runCommandAsync("scoreboard players set animation Counters 0");
 }, 4);
-
-system.run(function tick() {
-    for (const player of world.getPlayers()) {
-        if (player.hasTag("sell")) {
-            player.removeTag("sell");
-            sell_items(player);
-        }
-    }
-    system.run(tick);
-});
