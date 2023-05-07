@@ -36,6 +36,7 @@ const animation = [
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
         let title = animation[getScore("animation", "Counters")];
+        let minutes = getScore(player, "Minutes");
         let balance = metricNumbers(getScore(player, "Money"));
         let kills = getScore(player, "Kills");
         let deaths = getScore(player, "Deaths");
@@ -43,7 +44,7 @@ system.runInterval(() => {
         let members = metricNumbers(getScore(player, "members"));
         let hours = String(getScore(player, "Hours")).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         let warns = getScore(player, "Warnings");
-        player.onScreenDisplay.setTitle(`§µ§l     ${title}§l\n\n §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §9D:§f ${deaths}\n | §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f ${online} /11\n | §9Members: §f ${members}§r`)
+        player.onScreenDisplay.setTitle(`\n\n§µ§l     ${title}§l §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §9D:§f ${deaths}\n | §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n §f| §9Discord:§f MRDjdeDDbY\n | §dOnline: §f${online}/11\n | §9Members: §f${members}§r`)
         player.nameTag = `§8[${getRanks(player).join("§8, ")}§8] §f${player.name}§r`;
     }
 });
