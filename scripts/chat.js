@@ -1,4 +1,5 @@
 import { world } from "@minecraft/server";
+import { getScore, metricNumbers } from "./functions";
 
 const prefix = "+";
 world.events.beforeChat.subscribe((data) => {

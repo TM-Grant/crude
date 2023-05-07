@@ -1,5 +1,7 @@
 import "./display";
 import "./functions";
 import "./chat";
-//import "./stats";
 import "./sell";
+import "./killsanddeaths";
+import "./afk";
+import "./forms";
