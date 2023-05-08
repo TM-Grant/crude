@@ -6,6 +6,7 @@ world.events.entityHurt.subscribe(
     if (health.current > 0) return;
     hurtEntity.runCommandAsync("scoreboard players add @s Deaths 1");
     hurtEntity.runCommandAsync("scoreboard players set @s killstreak 0");
+    hurtEntity.removeTag("reached10Ks");
     if (!(damageSource.damagingEntity instanceof Player)) return;
     damageSource.damagingEntity.runCommandAsync("scoreboard players add @s Kills 1");
     damageSource.damagingEntity.runCommandAsync("scoreboard players add @s killstreak 1");

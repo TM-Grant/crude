@@ -6,3 +6,4 @@ import "./killsanddeaths";
 import "./afk";
 import "./forms";
 import "./stats";
+import "./killstreakrewards";

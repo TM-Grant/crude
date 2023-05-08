@@ -15,11 +15,11 @@ function page1(player) {
     const form = new ActionFormData();
     form.title("§dCrude §8KitPvP§r");
     form.body("§eMade By: §fTM Grant§r");
-    form.button("§9Warps§r\n§7[§bClick To View]");
-    form.button("§dRules§r\n§7[§bClick To View]")
-    form.button("§bCodes§r\n§7[§bClick To View]")
-    form.button("§2Money Transfer§r\n§7[§bClick To Transfer]");
-    form.button("§cClose§r\n§7[§bClick To Close]");
+    form.button("§9Warps§r\n§7[§bClick To View§7]§r");
+    form.button("§dRules§r\n§7[§bClick To View§7]§r")
+    form.button("§bCodes§r\n§7[§bClick To View§7]§r")
+    form.button("§2Money Transfer§r\n§7[§bClick To Transfer§7]§r");
+    form.button("§cClose§r\n§7[§bClick To Close§7]§r");
     form.show(player).then((response) => {
         if (response.selection == 0) {
             page2(player)

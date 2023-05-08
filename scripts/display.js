@@ -54,6 +54,6 @@ system.runInterval(() => {
 
 system.runInterval(() => {
     overworld.runCommandAsync("scoreboard players add animation Counters 1");
-    if (getScore("animation", "Counters") == 29)
+    if (getScore("animation", "Counters") == 28)
         overworld.runCommandAsync("scoreboard players set animation Counters 0");
 }, 4);
