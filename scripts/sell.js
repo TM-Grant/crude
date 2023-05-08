@@ -23,28 +23,28 @@ function sell_items(player) {
         "minecraft:diamond": 100,
         "minecraft:emerald": 150,
         "minecraft:nether_quartz": 25
-    }
-}
+    };
 
-const inventory = player.getComponent("inventory").container,
-    { size } = inventory;
-const void_slot = undefined;
-let amount = 0;
-let item_count = 0;
-for (let i = 0; i < size; i++) {
-    const item = inventory.getItem(i);
-    if (!item) continue;
-    const item_price = sellable_items[item.typeId];
-    if (!item_price) continue;
-    amount += item_price * item.amount;
-    item_count += item.amount;
-    inventory.setItem(i, void_slot);
-}
-if (item_count < 1) {
-    player.sendMessage('§8[§eKitPvP§8] §cYou have no items to sell.§r');
-    return;
-}
-if (item_count >= 1) {
-    player.runCommandAsync(`scoreboard players add @s Balance ${amount}`);
-    player.sendMessage(`§8[§eKitPvP§8] §dYou sold §bx${item_count} §ditem(s) for §a$${amount}§d.§r`);
+    const inventory = player.getComponent("inventory").container,
+        { size } = inventory;
+    const void_slot = undefined;
+    let amount = 0;
+    let item_count = 0;
+    for (let i = 0; i < size; i++) {
+        const item = inventory.getItem(i);
+        if (!item) continue;
+        const item_price = sellable_items[item.typeId];
+        if (!item_price) continue;
+        amount += item_price * item.amount;
+        item_count += item.amount;
+        inventory.setItem(i, void_slot);
+    }
+    if (item_count < 1) {
+        player.sendMessage('§8[§eKitPvP§8] §cYou have no items to sell.§r');
+        return;
+    }
+    if (item_count >= 1) {
+        player.runCommandAsync(`scoreboard players add @s Money${amount}`);
+        player.sendMessage(`§8[§eKitPvP§8] §dYou sold §bx${item_count} §ditem(s) for §a$${amount}§d.§r`);
+    }
 }
