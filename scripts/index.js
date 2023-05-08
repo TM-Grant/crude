@@ -5,3 +5,4 @@ import "./sell";
 import "./killsanddeaths";
 import "./afk";
 import "./forms";
+import "./stats";
