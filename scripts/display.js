@@ -5,7 +5,7 @@ const overworld = world.getDimension("overworld");
 const animation = [
     "§dCrude KitPvP§r",
     "§5C§drude KitPvP§r",
-    "§fC§5R§dude KitPvP§r",
+    "§fC§5r§dude KitPvP§r",
     "§5C§fr§5u§dde KitPvP§r",
     "§dC§5r§fu§5d§de KitPvP§r",
     "§dCr§5u§fd§5e §dKitPvP§r",
@@ -29,7 +29,7 @@ const animation = [
     "§dCr§5u§fd§5e §dKitPvP§r",
     "§dC§5r§fu§5d§de KitPvP§r",
     "§5C§fr§5u§dde KitPvP§r",
-    "§fC§5R§dude KitPvP§r",
+    "§fC§5r§dude KitPvP§r",
     "§5C§drude KitPvP§r",
     "§dCrude KitPvP§r",
 ];
@@ -42,11 +42,12 @@ system.runInterval(() => {
         let kills = getScore(player, "Kills");
         let deaths = getScore(player, "Deaths");
         let kdr = (kills / (deaths === 0 ? 1 : deaths)).toFixed(2);
+        let killstreak = getScore(player, "killstreak")
         let online = world.getAllPlayers().length;
         let members = metricNumbers(getScore(player, "members"));
         let hours = String(getScore(player, "Hours")).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         let warns = getScore(player, "Warnings");
-        player.onScreenDisplay.setTitle(`\n\n§µ§l     ${title}§l §dPlayer Stats:\n §f| §9User:§f ${player.name}\n | §dMoney:§f $${balance}\n | §9K:§f ${kills} | §dD:§f ${deaths}\n | §9KDR: §f${kdr} \n| §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours}\n\n §dServer Stats:\n§f| §dOnline: §f${online}/11\n | §9Members: §f${members}§r`)
+        player.onScreenDisplay.setTitle(`§µ§l  ${title}\n§l§9Player Stats:\n §f| §dUser:§f ${player.name}\n | §9Money:§f $${balance}\n | §dKillstreak: §f${killstreak}\n | §9K:§f ${kills} | §dD:§f ${deaths}\n | §9KDR: §f${kdr} \n | §dWarns:§f ${warns}/3\n | §9Time: §9H:§f ${hours} §9M:§f ${minutes}\n\n§dServer Stats:\n§f | §dOnline: §f${online}/11\n | §9Members: §f${members}§r`)
         player.nameTag = `§8[${getRanks(player).join("§8, ")}§8] §f${player.name}§r`;
     }
 });
