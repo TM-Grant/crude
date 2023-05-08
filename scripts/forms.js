@@ -105,6 +105,7 @@ system.runInterval(() => {
     for (const player of world.getPlayers()) {
         if (player.hasTag("rules")) {
             player.sendMessage("§dRules \n§f - No Clogging\n - No Hacking/Exploiting\n - No Small/invis Skins\n - No Spamming/Flooding Chat\n - No Drag, Auto Clicking, jitter clicking\n - No ip pulling/Threats\n - No Abusing Glitches if you report a reward will be granted\n - Max Teams of two\n - Anyone Can kill loot stealers\n - You can only kill people your tier\n - No body blocking\n - No lying to staff\n - No disrespecting staff\n - No kit swapping\n - keep your cps under 15§r")
+            player.removeTag("rules")
         }
     }
 })
@@ -113,6 +114,7 @@ system.runInterval(() => {
     for (const player of world.getPlayers()) {
         if (player.hasTag("codes")) {
             player.sendMessage("§cCodes§f\n - §dRealm Code: §fpFrsCHPkWTY\n - §9Discord: §fMRDjdeDDbY")
+            player.removeTag("codes")
         }
     }
 })
