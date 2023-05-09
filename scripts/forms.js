@@ -15,25 +15,29 @@ function page1(player) {
     const form = new ActionFormData();
     form.title("§dCrude §8KitPvP§r");
     form.body("§eMade By: §fTM Grant§r");
-    form.button("§9Warps§r\n§7[§bClick To View]");
-    form.button("§dRules§r\n§7[§bClick To View]")
-    form.button("§bCodes§r\n§7[§bClick To View]")
-    form.button("§2Money Transfer§r\n§7[§bClick To Transfer]");
-    form.button("§cClose§r\n§7[§bClick To Close]");
+    form.button("§gWarps§r\n§7[§bClick To View]§r");
+    form.button("§dRules§r\n§7[§bClick To View]§r");
+    form.button("§bCodes§r\n§7[§bClick To View]§r");
+    form.button("§2Money Transfer§r\n§7[§bClick To Transfer]§r");
+    form.button("§9Discord Code\n§7[§bClick To Enter§7]§r");
+    form.button("§cClose\n§7[§bClick To Close]§r");
     form.show(player).then((response) => {
         if (response.selection == 0) {
-            page2(player)
+            page2(player);
         }
         if (response.selection == 1) {
             player.addTag("rules");
         }
         if (response.selection == 2) {
-            player.addTag("codes")
+            player.addTag("codes");
         }
         if (response.selection == 3) {
-            page3(player)
+            page3(player);
         }
         if (response.selection == 4) {
+            page4(player);
+        }
+        if (response.selection == 5) {
             return;
         }
     })
@@ -93,6 +97,26 @@ async function page3(player) {
             player.sendMessage(`§8[§eKitPvP§8] §fYou have sent §a$${amount} §fto §b${target.name}§r`);
             target.sendMessage(`§8[§eKitPvP§8] §fYou have recieved §a$${amount} §ffrom §b${player.name}§r`);
         });
+}
+
+async function page4(player) {
+    const response = await new ModalFormData()
+        .title("Codes Menu")
+        .textField("Codes §7(§dCase Sensitive§7)§r", "Code goes here")
+        .show(player).then((response) => {
+            const inserted = [response.formValues[1]];
+            if (inserted == "FGRS65" && !player.hasTag("usedDcCode")) {
+                player.runCommandAsync("scoreboard players add @s Money 25000");
+                player.sendMessage("§aSuccessfully Redeemed §9Discord §aKit\n§f| §a+$25.00k §r");
+                player.addTag("usedDcCode");
+            }
+            else if (player.hasTag("usedDcCode")) {
+                player.sendMessage("you have already used the Discord Code")
+            }
+            else {
+                player.sendMessage(`§7[§b${inserted}§7] §cIs An Invalid Code§r`)
+            }
+        })
 }
 
 system.runInterval(() => {

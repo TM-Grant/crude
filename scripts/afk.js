@@ -12,6 +12,7 @@ system.runInterval(() => {
 
         if (getScore(player, "afkTimer") >= 6000) {
             player.runCommandAsync("scoreboard players set @s afkTimer 0")
+            world.sendMessage(`Kicked ${player.name} for being AFK`)
             player.runCommandAsync(`kick ${player.name} AFK`)
         }
     }
