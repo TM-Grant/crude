@@ -44,3 +44,66 @@ world.events.beforeChat.subscribe((data) => {
         world.sendMessage(`§7[§a$${balance}§7] §7[§b${hours}§7] §r§e${player.name}: §f${message}§r`)
     }
 })
+
+
+function effPage(player) {
+    const money = getScore(player, "Balance")
+    const form = new ActionFormData();
+    form.title("§aEfficiency §bEnchants§r")
+    form.button("§bEfficiency 1");
+    form.button("§bEfficiency 2");
+    form.button("§bEfficiency 3");
+    form.button("§bEfficiency 4");
+    form.button("§bEfficiency 5");
+    form.button("§cClose");
+    form.show(player).then((response) => {
+        if (response.selection == 0) {
+            if (money >= 10000) {
+                player.runCommandAsync("scoreboard players remove @s Balance 10000")
+                player.runCommandAsync("enchant @s efficiency 1")
+                player.sendMessage("§eSkygen §8>> §fSucessfully enchanted with §dEfficiency 1")
+            } else {
+                player.sendMessage("§eSkygen §8>> §cYou do not have enough money to purchase §dEfficiency 1")
+            }
+        }
+        if (response.selection == 1) {
+            if (money >= 20000) {
+                player.runCommandAsync("scoreboard players remove @s Balance 20000")
+                player.runCommandAsync("enchant @s efficiency 2")
+                player.sendMessage("§eSkygen §8>> §fSucessfully enchanted with §dEfficiency 2")
+            } else {
+                player.sendMessage("§eSkygen §8>> §cYou do not have enough money to purchase §dEfficiency 2")
+            }
+        }
+        if (response.selection == 2) {
+            if (money >= 30000) {
+                player.runCommandAsync("scoreboard players remove @s Balance 30000")
+                player.runCommandAsync("enchant @s efficiency 3")
+                player.sendMessage("§eSkygen §8>> §fSucessfully enchanted with §dEfficiency 3")
+            } else {
+                player.sendMessage("§eSkygen §8>> §cYou do not have enough money to purchase §dEfficiency 3")
+            }
+        }
+        
+        if (response.selection == 3) {
+            if (money >= 40000) {
+                player.runCommandAsync("scoreboard players remove @s Balance 40000")
+                player.runCommandAsync("enchant @s efficiency 4")
+                player.sendMessage("§eSkygen §8>> §fSucessfully enchanted with §dEfficiency 4")
+            } else {
+                player.sendMessage("§eSkygen §8>> §cYou do not have enough money to purchase §dEfficiency 4")
+            }
+        }
+        if (response.selection == 4) {
+            if (money >= 50000) {
+                player.runCommandAsync("scoreboard players remove @s Balance 50000")
+                player.runCommandAsync("enchant @s efficiency 5")
+                player.sendMessage("§eSkygen §8>> §fSucessfully enchanted with §dEfficiency 5")
+            } else {
+                player.sendMessage("§eSkygen §8>> §cYou do not have enough money to purchase §dEfficiency 5")
+            }
+        }
+        if (response.selection == 5) {
+        }
+    })   
+}
